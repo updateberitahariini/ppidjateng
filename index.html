@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPID JATENG - Portal Informasi Publik Jawa Tengah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        :root {
+            --primary-color: #2E5B96;
+            --secondary-color: #3A7BC8;
+            --accent-color: #E63946;
+            --light-color: #F8F9FA;
+            --dark-color: #343A40;
+            --success-color: #28A745;
+            --warning-color: #FFC107;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Header */
+        .top-bar {
+            background-color: #1c3d6b;
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 70px;
+            width: auto;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            font-size: 14px;
+            color: var(--dark-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--dark-color);
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .search-box {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            border-radius: 4px;
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .search-box input {
+            background: transparent;
+            border: none;
+            width: 180px;
+            outline: none;
+        }
+        
+        .search-box i {
+            color: #666;
+            cursor: pointer;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(46, 91, 150, 0.9), rgba(46, 91, 150, 0.9)), url('https://images.unsplash.com/photo-1551135049-8a33b2fb2d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 40px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Quick Access */
+        .quick-access {
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+            color: var(--primary-color);
+        }
+        
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .access-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .access-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .access-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .access-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .access-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Berita Utama */
+        .featured-news {
+            margin-bottom: 60px;
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        
+        .main-news {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .main-news-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .main-news-content {
+            padding: 25px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .main-news-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: var(--dark-color);
+        }
+        
+        .main-news-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .news-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .news-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+        }
+        
+        .news-item-image {
+            width: 120px;
+            height: 100px;
+            object-fit: cover;
+        }
+        
+        .news-item-content {
+            padding: 15px;
+            flex: 1;
+        }
+        
+        .news-item-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+        
+        .news-item-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #888;
+            font-size: 13px;
+        }
+        
+        /* Informasi Publik */
+        .public-info {
+            background-color: var(--light-color);
+            padding: 60px 0;
+            margin-bottom: 60px;
+        }
+        
+        .info-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .tab-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-list {
+            list-style: none;
+        }
+        
+        .info-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-list a {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .info-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .info-date {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        /* Layanan */
+        .services {
+            margin-bottom: 60px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            border-top: 4px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--primary-color);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1c3d6b;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-details li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-details i {
+            color: var(--accent-color);
+            margin-top: 3px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .access-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .search-box {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .access-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 50px 0;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="contact-info">
+                    <span><i class="fas fa-phone"></i> (024) 1234-5678</span>
+                    <span><i class="fas fa-envelope"></i> ppid@jatengprov.go.id</span>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-text">
+                        <h1>PPID JATENG</h1>
+                        <span>Pejabat Pengelola Informasi dan Dokumentasi<br>Pemerintah Provinsi Jawa Tengah</span>
+                    </div>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Beranda</a></li>
+                        <li><a href="#">Profil PPID</a></li>
+                        <li><a href="#">Informasi Publik</a></li>
+                        <li><a href="#">Layanan</a></li>
+                        <li><a href="#">Regulasi</a></li>
+                        <li><a href="#">Berita</a></li>
+                        <li><a href="#">Kontak</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Cari informasi...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="mobile-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">INFORMASI TERBARU</span>
+                <h2>Transparansi Anggaran 2024: Akses Data Keuangan Publik Provinsi Jawa Tengah</h2>
+                <p>PPID Jateng membuka akses informasi lengkap mengenai APBD 2024, termasuk alokasi anggaran, realisasi, dan laporan keuangan untuk meningkatkan akuntabilitas publik.</p>
+                <a href="#" class="btn btn-primary">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="quick-access">
+        <div class="container">
+            <h2 class="section-title">Akses Cepat Layanan</h2>
+            <div class="access-grid">
+                <div class="access-card">
+                    <div class="access-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Permohonan Informasi</h3>
+                    <p>Ajukan permohonan informasi publik secara online</p>
+                    <a href="#" class="btn btn-secondary">Ajukan</a>
+                </div>
+                
+                <div class="access-card">
+                    <div class="access-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Informasi</h3>
+                    <p>Akses kumpulan informasi publik yang tersedia</p>
+                    <a href="#" class="btn btn-secondary">Jelajahi</a>
+                </div>
+                
+                <div class="access-card">
+                    <div class="access-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Statistik</h3>
+                    <p>Data statistik perkembangan Jawa Tengah</p>
+                    <a href="#" class="btn btn-secondary">Lihat Data</a>
+                </div>
+                
+                <div class="access-card">
+                    <div class="access-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>FAQ</h3>
+                    <p>Pertanyaan umum seputar informasi publik</p>
+                    <a href="#" class="btn btn-secondary">Baca FAQ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita Utama -->
+    <section class="featured-news">
+        <div class="container">
+            <h2 class="section-title">Berita & Pengumuman</h2>
+            <div class="news-grid">
+                <article class="main-news">
+                    <img src="https://images.unsplash.com/photo-1551135049-8a33b2fb2d5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rapat PPID" class="main-news-image">
+                    <div class="main-news-content">
+                        <span class="news-category">PENGUMUMAN</span>
+                        <h3 class="main-news-title">Peningkatan Pelayanan PPID Jawa Tengah Melalui Sistem Informasi Terintegrasi</h3>
+                        <p class="main-news-excerpt">Pemerintah Provinsi Jawa Tengah meluncurkan sistem informasi terintegrasi untuk mempermudah masyarakat mengakses informasi publik. Sistem ini memungkinkan permohonan informasi secara online dengan waktu respons lebih cepat.</p>
+                        <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+                    </div>
+                </article>
+                
+                <div class="news-sidebar">
+                    <div class="news-item">
+                        <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Pelatihan" class="news-item-image">
+                        <div class="news-item-content">
+                            <h4 class="news-item-title">Pelatihan PPID bagi OPD Se-Jawa Tengah</h4>
+                            <div class="news-item-meta">
+                                <span><i class="far fa-calendar"></i> 15 Mar 2024</span>
+                                <span><i class="far fa-eye"></i> 245</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Penghargaan" class="news-item-image">
+                        <div class="news-item-content">
+                            <h4 class="news-item-title">PPID Jateng Raih Penghargaan Keterbukaan Informasi 2023</h4>
+                            <div class="news-item-meta">
+                                <span><i class="far fa-calendar"></i> 10 Mar 2024</span>
+                                <span><i class="far fa-eye"></i> 312</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Rapat Kerja" class="news-item-image">
+                        <div class="news-item-content">
+                            <h4 class="news-item-title">Rapat Koordinasi PPID Kabupaten/Kota Se-Jawa Tengah</h4>
+                            <div class="news-item-meta">
+                                <span><i class="far fa-calendar"></i> 5 Mar 2024</span>
+                                <span><i class="far fa-eye"></i> 189</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informasi Publik -->
+    <section class="public-info">
+        <div class="container">
+            <h2 class="section-title">Informasi Publik</h2>
+            <div class="info-tabs">
+                <button class="tab-btn active" data-tab="dikecualikan">Dikecualikan</button>
+                <button class="tab-btn" data-tab="setiap-saat">Setiap Saat</button>
+                <button class="tab-btn" data-tab="berkala">Berkala</button>
+                <button class="tab-btn" data-tab="serta-merta">Serta Merta</button>
+            </div>
+            
+            <div class="tab-content">
+                <ul class="info-list" id="dikecualikan">
+                    <li>
+                        <a href="#">Informasi yang dikecualikan menurut UU KIP</a>
+                        <span class="info-date">12 Mar 2024</span>
+                    </li>
+                    <li>
+                        <a href="#">Prosedur pengecualian informasi publik</a>
+                        <span class="info-date">10 Mar 2024</span>
+                    </li>
+                    <li>
+                        <a href="#">Daftar informasi yang dikecualikan di lingkungan Pemprov Jateng</a>
+                        <span class="info-date">5 Mar 2024</span>
+                    </li>
+                    <li>
+                        <a href="#">Mekanisme keberatan atas informasi yang dikecualikan</a>
+                        <span class="info-date">1 Mar 2024</span>
+                    </li>
+                </ul>
+                
+                <ul class="info-list" id="setiap-saat" style="display: none;">
+                    <li>
+                        <a href="#">Profil Pejabat PPID Provinsi Jawa Tengah</a>
+                        <span class="info-date">15 Mar 2024</span>
+                    </li>
+                    <li>
+                        <a href="#">Struktur organisasi PPID Provinsi Jawa Tengah</a>
+                        <span class="info-date">14 Mar 2024</span>
+                    </li>
+                    <li>
+                        <a href="#">Maklumat Pelayanan Informasi Publik</a>
+                        <span class="info-date">12 Mar 2024</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title">Layanan PPID</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Mediasi Informasi</h3>
+                    <p>Layanan mediasi untuk penyelesaian sengketa informasi publik antara pemohon dan badan publik.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Edukasi & Sosialisasi</h3>
+                    <p>Program edukasi dan sosialisasi mengenai hak masyarakat atas informasi publik.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Konsultasi</h3>
+                    <p>Layanan konsultasi mengenai tata cara permohonan informasi dan hak atas informasi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PPID JATENG</h3>
+                    <p>Pejabat Pengelola Informasi dan Dokumentasi Provinsi Jawa Tengah menyediakan akses informasi publik sesuai Undang-Undang No. 14 Tahun 2008 tentang Keterbukaan Informasi Publik.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Menu Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Profil PPID</a></li>
+                        <li><a href="#">Informasi Publik</a></li>
+                        <li><a href="#">Layanan</a></li>
+                        <li><a href="#">Regulasi</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Link Terkait</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Pemerintah Provinsi Jawa Tengah</a></li>
+                        <li><a href="#">Komisi Informasi Pusat</a></li>
+                        <li><a href="#">Komisi Informasi Jawa Tengah</a></li>
+                        <li><a href="#">Layanan Pengaduan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Kontak Kami</h3>
+                    <ul class="footer-links contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Gedung B Lantai 1, Kompleks Kantor Gubernur Jawa Tengah, Jl. Pahlawan No. 9, Semarang</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(024) 1234-5678</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>ppid@jatengprov.go.id</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Senin - Jumat: 08:00 - 16:00 WIB</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 PPID Provinsi Jawa Tengah. Hak Cipta Dilindungi. Informasi yang disajikan merupakan informasi publik sesuai UU No. 14 Tahun 2008.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Hide all tab contents
+                document.querySelectorAll('.info-list').forEach(content => {
+                    content.style.display = 'none';
+                });
+                
+                // Show selected tab content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).style.display = 'block';
+            });
+        });
+        
+        // Search functionality
+        document.querySelector('.search-box i').addEventListener('click', function() {
+            const query = document.querySelector('.search-box input').value;
+            if(query.trim()) {
+                alert(`Mencari informasi: "${query}". Di halaman nyata, ini akan mengarahkan ke hasil pencarian.`);
+            }
+        });
+        
+        // Search on enter key
+        document.querySelector('.search-box input').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') {
+                document.querySelector('.search-box i').click();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                }
+            });
+        });
+        
+        // Simulate loading content for "Setiap Saat" tab
+        const setiapSaatContent = [
+            {title: "Profil Pejabat PPID Provinsi Jawa Tengah", date: "15 Mar 2024"},
+            {title: "Struktur organisasi PPID Provinsi Jawa Tengah", date: "14 Mar 2024"},
+            {title: "Maklumat Pelayanan Informasi Publik", date: "12 Mar 2024"},
+            {title: "Informasi mengenai PPID di lingkungan Pemprov Jateng", date: "10 Mar 2024"},
+            {title: "Standar Operasional Prosedur Pelayanan Informasi", date: "8 Mar 2024"}
+        ];
+        
+        const setiapSaatList = document.getElementById('setiap-saat');
+        setiapSaatContent.forEach(item => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="#">${item.title}</a><span class="info-date">${item.date}</span>`;
+            setiapSaatList.appendChild(li);
+        });
+        
+        // Add content for other tabs
+        const berkalaContent = [
+            {title: "Laporan Keterbukaan Informasi Publik Triwulan I 2024", date: "30 Mar 2024"},
+            {title: "Laporan Keuangan Pemprov Jateng Semester II 2023", date: "28 Feb 2024"},
+            {title: "Laporan Kinerja PPID Provinsi Jawa Tengah 2023", date: "25 Jan 2024"},
+            {title: "Statistik Permohonan Informasi Publik 2023", date: "15 Jan 2024"}
+        ];
+        
+        const sertaMertaContent = [
+            {title: "Pengumuman Libur Nasional Hari Raya Nyepi", date: "10 Mar 2024"},
+            {title: "Peringatan Dini Bencana Banjir di Beberapa Wilayah Jateng", date: "5 Mar 2024"},
+            {title: "Pengumuman Pembukaan Pendaftaran CPNS 2024", date: "1 Mar 2024"},
+            {title: "Informasi Keadaan Darurat Kesehatan", date: "25 Feb 2024"}
+        ];
+        
+        // Create tab contents for berk
